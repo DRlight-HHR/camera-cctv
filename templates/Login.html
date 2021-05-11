@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    {% csrf_token %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/Login.css' %}">
+</head>
+<body>
+    <div id="main_" dir="rtl">
+        <h1 style="text-align: center; text-transform: capitalize">login</h1>
+        <form>
+            <div id="main__">
+                {% csrf_token %}
+                <input type="text" name="_username_" autocomplete="on" placeholder="username">
+                <br>
+                <small>نام کاربری خود را وارد کنید</small>
+                <br>
+                {% csrf_token %}
+                <input type="text" name="_email_" autocomplete="on" placeholder="email">
+                <br>
+                <small>ایمیل خود را وارد کنید</small>
+                <br>
+                {% csrf_token %}
+                <input type="password" name="_pass1_" autocomplete="on" placeholder="password">
+                <br>
+                <small>پسورد خود را وارد کنید</small>
+                <br>
+                <div id="main_b">
+                    <button formmethod="post">login</button>
+                </div>
+                <h3 style="text-align: center"><a href="http://127.0.0.1:8001/" target="_self">اگر حسابی ندارید کلیک کنید</a></h3>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

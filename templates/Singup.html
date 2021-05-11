@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>singup</title>
+    {% csrf_token %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/Singup.css' %}">
+</head>
+<body>
+    <h1 style="color: red; text-align: center">{{ error }}</h1>
+    <h1 style="color: red; text-align: center">{{ username_error }}</h1>
+    <h1 style="color: red; text-align: center">{{ email_error }}</h1>
+    <div id="main_" dir="rtl">
+        <h1 style="text-align: center; text-transform: capitalize">singup</h1>
+        <form>
+            <div id="main__">
+                {% csrf_token %}
+                <input type="text" name="_username_" autocomplete="on" placeholder="username">
+                <br>
+                <small>نام کاربری خود را وارد کنید</small>
+                <br>
+                {% csrf_token %}
+                <input type="text" name="_name_" autocomplete="on" placeholder="full name">
+                <br>
+                <small>نام کامل خود را وارد کنید</small>
+                <br>
+                {% csrf_token %}
+                <input type="text" name="_email_" autocomplete="on" placeholder="email">
+                <br>
+                <small>ایمیل خود را وارد کنید(حتما باید gmail باشد)</small>
+                <br>
+                {% csrf_token %}
+                <input type="password" name="_pass1_" autocomplete="on" placeholder="password">
+                <br>
+                <small>پسورد خود را وارد کنید</small>
+                <br>
+                {% csrf_token %}
+                <input type="password" name="_pass2_" autocomplete="on" placeholder="re-password">
+                <br>
+                <small>پسورد خود را تکرار کنید</small>
+                <br>
+                <div id="main_b">
+                    {% csrf_token %}
+                    <button formmethod="post">singup</button>
+                </div>
+                {% csrf_token %}
+                <h3 style="text-align: center"><a href="http://127.0.0.1:8001/login/" target="_self">اگر حسابی دارید کلیک کنید</a></h3>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

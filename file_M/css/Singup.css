@@ -1,0 +1,47 @@
+body {
+    background-color: mediumpurple;
+    font-family: "Calisto MT";
+}
+
+#main_ {
+    margin: auto;
+    width: 30%;
+    height: 500px;
+    border: 5px solid black;
+    border-radius: 25px;
+    box-shadow: 15px 15px 15px 5px gray;
+}
+#main_ small {
+    color: red;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+#main__ {
+    margin: auto;
+    width: 70%;
+    margin-top: 50px;
+}
+
+#main_ input {
+    border-radius: 15px;
+    width: 100%;
+    height: 25px;
+    text-align: left;
+    border: 5px dashed gainsboro;
+}
+
+#main_b {
+    width: 30%;
+    height: 25px;
+    margin: auto;
+    margin-top: 5%;
+}
+
+#main_b button{
+    width: 100%;
+    background-color: greenyellow;
+    border-radius: 5px;
+    border: 3px dotted bisque;
+    font-family: "Segoe UI";
+}

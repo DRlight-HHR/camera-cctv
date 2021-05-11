@@ -1,0 +1,203 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Controller</title>
+    <style>
+        #main_ {
+            border: 5px solid black;
+            border-radius: 25px;
+            box-shadow: 20px 20px 50px grey;
+            position: relative;
+            margin: auto;
+            width: auto;
+            height: 600px;
+        }
+        #main_ img {
+            width: 100%;
+            position: absolute;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
+        #click1 {
+            width: 100%;
+            height: 400px;
+            margin: auto;
+            margin-top: 100px;
+            position: relative;
+        }
+
+        #bt {
+            margin: auto;
+            margin-top: 300px;
+            width: 100px;
+            height: 40px;
+        }
+        #bt button {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+        #one {
+            float: left;
+            margin-left: 1%;
+            width: 170px;
+            border: 5px solid red;
+            border-radius: 10px;
+            {% if click1 is True %}
+                background-color: mediumspringgreen;
+            {% else %}
+                background-color: gainsboro;
+            {% endif %}
+        }
+        #two {
+            float: left;
+            width: 170px;
+            border: 5px solid red;
+            border-radius: 10px;
+            {% if click2 is True %}
+                background-color: mediumspringgreen;
+            {% else %}
+                background-color: gainsboro;
+            {% endif %}
+        }
+        #tree {
+            float: right;
+            width: 170px;
+            border: 5px solid red;
+            border-radius: 10px;
+            {% if click3 is True %}
+                background-color: mediumspringgreen;
+            {% else %}
+                background-color: gainsboro;
+            {% endif %}
+        }
+        #toww {
+            width: 60%;
+            height: 200px;
+            float: right;
+        }
+    </style>
+</head>
+<body background="{% static 'image/7T9364v.gif' %}">
+<h4 dir="rtl"><a href="http://127.0.0.1:8000/long_out/" style="color: yellow">خارج شدن از حساب</a></h4>
+<div id="main_">
+    <!-- Rounded switch -->
+    <img src="{% static 'image/Design Render GIF by xponentialdesign - Find & Share on GIPHY.gif' %}"/>
+    <h1 style="color: lawngreen; text-align: center; font-family: 'Comic Sans MS'; text-transform: capitalize">{{ status }}</h1>
+    <div id="click1">
+        {% if status2 == 'on' %}
+        <form>
+            {% csrf_token %}
+            <div id="one">
+            <h1>control one:</h1>
+            <label class="switch">
+                <input type="checkbox" name="check1">
+                <span class="slider round"></span>
+                {% if click1 is True %}
+                <h2 style="color: green">ON</h2>
+                {% else %}
+                <h2 style="color: black">OFF</h2>
+                {% endif %}
+            </label>
+            </div>
+            <div id="toww">
+            <div id="two">
+            <h1>control two:</h1>
+            <label class="switch">
+                <input type="checkbox" name="check2">
+                <span class="slider round"></span>
+                {% if click2 is True %}
+                <h2 style="color: green">ON</h2>
+                {% else %}
+                <h2 style="color: black">OFF</h2>
+                {% endif %}
+            </label>
+            </div>
+            <div id="tree">
+            <h1>control tree:</h1>
+            <label class="switch">
+                <input type="checkbox" name="check3">
+                <span class="slider round"></span>
+                {% if click3 is True %}
+                <h2 style="color: green">ON</h2>
+                {% else %}
+                <h2 style="color: black">OFF</h2>
+                {% endif %}
+            </label>
+            </div>
+            </div>
+            <br>
+            <div id="bt">
+                <button type="submit" formmethod="post">send</button>
+            </div>
+        </form>
+        {% else %}
+        <h2 style="color: red; text-align: center; font-weight: bold">you cant change anything when your system is off</h2>
+        {% endif %}
+    </div>
+</div>
+</body>
+</html>

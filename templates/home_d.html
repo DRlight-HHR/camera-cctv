@@ -1,0 +1,197 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+    {% csrf_token %}
+    <link href="{% static 'image/Thirst for Knowledge.ico'%}" rel="icon" type="image/x-icon" />
+    <style>
+        body {
+            background-color: snow;
+            font-family: amir;
+        }
+
+        @font-face {
+            font-family: amir;
+            src: url("{% static 'font/Amiri-Bold.ttf'%}");
+        }
+
+        #title {
+            width: 100%;
+            height: 65px;
+            border-radius: 10px;
+            background-color: black;
+            position: sticky;
+            top: 0;
+            z-index: 2;
+        }
+
+        #main {
+            margin-top: 70px;
+            width: 98%;
+            height: 600px;
+            border-radius: 35px 10px;
+            box-shadow: 20px 20px 15px;
+            border: 8px dashed blueviolet;
+            position: relative;
+            background-color: #edecd6;
+            z-index: -2;
+        }
+
+        #main #background_im {
+            width: 100%;
+            height: 100%;
+            filter: blur(10px);
+            position: absolute;
+            border-radius: 35px 10px;
+            z-index: -1;
+        }
+
+        #main #im {
+            margin-right: 5px;
+            width: 200px;
+            height: 200px;
+            float: right;
+        }
+
+        #main #im img {
+            border-radius: 10px 10px;
+            width: 100%;
+            height: 100%;
+        }
+
+        #main #im :hover {
+            width: 120%;
+            height: 120%;
+            box-shadow: 20px 20px blueviolet;
+        }
+
+
+        #book_image:hover {
+            width: 120%;
+            height: 120%;
+            box-shadow: 20px 20px blueviolet;
+        }
+
+        #main #i_p {
+            width: 80%;
+            height: 100%;
+            margin-left: 1%;
+            margin-top: 2px;
+        }
+
+        #main #i_p #fad {
+            margin: auto;
+            width: 90%;
+            height: 100%;
+        }
+
+        #fad:hover {
+            color: rosybrown;
+        }
+
+        #footer {
+            width: 100%;
+            height: 280px;
+            margin-top: 300px;
+            background-color: #333333;
+            position: relative;
+            z-index: 0;
+        }
+
+        #i {
+            float: left;
+            width: 500px;
+            height: 400px;
+            position: relative;
+            z-index: 1;
+        }
+
+        #i img {
+            width: 100%;
+            height: 100%;
+        }
+
+        #m {
+            margin-top: 25px;
+            float: right;
+            width: 400px;
+            height: 300px;
+            position: relative;
+            z-index: 1;
+        }
+
+        #m img {
+            width: 100%;
+            height: 100%;
+        }
+
+        #para {
+            margin: 4px;
+            padding: 4px;
+            background-color: green;
+            width: 500px;
+            height: 110px;
+            overflow: auto;
+            z-index: 2;
+        }
+
+        #search {
+            width: 270px;
+            height: 30px;
+            border-radius: 10px;
+        }
+
+        input {
+            border: 3px solid lawngreen;
+            position: relative;
+            z-index: 0;
+            font-family: 'amir';
+        }
+    </style>
+    {% csrf_token %}
+    <link rel="stylesheet" href="{% static 'font/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+</head>
+<body>
+<div id="title">
+    <form>
+        <div style="margin-top: 11px;margin-right: 20px;float: right; position: relative;">
+            {% csrf_token %}
+            <div style="width: 40px; height: 40px; position: absolute; z-index: 1; margin-top: 2%; margin-left: 2%">
+                <button formmethod="post" style="background-color: white; border: 0px solid white"><i
+                        class="fa fa-search" aria-hidden="true" style="size: 50px;"></i></button>
+            </div>
+            <input type="text" id="search" name="search" dir="rtl" placeholder="نام(کتاب,نویسنده,ناشر)" autocomplete="on">
+        </div>
+    </form>
+</div>
+
+<div id="main" style="height: 600px">
+    <img src="{{ data.image.url }}" id="background_im">
+    <br>
+    <div id="im">
+        <img src="{{ data.image.url }}" id="book_image">
+    </div>
+
+    <div id="i_p">
+        <div id="fad" dir="rtl">
+            <h2 style="color: honeydew">نویسنده:{{ data.author }}</h2>
+            <h2 style="color: honeydew">ناشر:{{ data.Publisher }}</h2>
+            <h4 style="color: honeydew; text-shadow: #1A01CC">{{ data.description }}</h4>
+        </div>
+    </div>
+</div>
+
+<div id="i">
+    <img src="{% static 'image/386b56132c82202247b3d9d8f82fa2b8-removebg-preview.png' %}">
+</div>
+
+<div id="m">
+    <img src="{% static 'image/Illustration_Of_Cute_Girl_In_Lotus_Position_Reading_A_Book-removebg-preview.png' %}">
+</div>
+
+<div id="footer">
+</div>
+</body>
+</html>

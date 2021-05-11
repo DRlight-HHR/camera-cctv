@@ -1,0 +1,15 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>video</title>
+</head>
+<body>
+{% for i in data %}
+<video controls width="640" height="480">
+        <source src="{{  i.image.url }}" type="video/mp4"/>
+</video>
+{% endfor %}
+</body>
+</html>

@@ -1,0 +1,15 @@
+{% load staticfiles updateable %}
+
+<!doctype html>
+<html>
+  <head>
+    <title>example</title>
+    <script src='{% static 'updateable.js' %}'></script>
+  </head>
+  <body>
+  <h1>Static header</h1>
+  {% updateable %}
+    The time is {% now 'H:i:s' %}
+  {% endupdateable %}
+  </body>
+</html>

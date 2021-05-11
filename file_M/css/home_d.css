@@ -1,0 +1,121 @@
+
+body {
+    background-color: snow;
+}
+
+#title {
+    width: 100%;
+    height: 55px;
+    background-color: black;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+#main {
+    margin-top: 70px;
+    width: 98%;
+    height: 600px;
+    border-radius: 35px 10px;
+    box-shadow: 20px 20px 15px;
+    border: 8px dashed blueviolet;
+    position: relative;
+    background-color: #edecd6;
+    z-index: -2;
+}
+#main #background_im {
+    width: 100%;
+    height: 100%;
+    filter: blur(10px);
+    position: absolute;
+    border-radius: 35px 10px;
+    z-index: -1;
+}
+
+#main #im {
+    margin-right: 5px;
+    width: 200px;
+    height: 200px;
+    float: right;
+}
+
+#main #im img {
+    border-radius: 10px 10px;
+    width: 100%;
+    height: 100%;
+}
+
+#main #im :hover{
+    width: 120%;
+    height: 120%;
+    box-shadow: 20px 20px blueviolet;
+}
+
+
+#book_image:hover {
+    width: 120%;
+    height: 120%;
+    box-shadow: 20px 20px blueviolet;
+}
+
+#main #i_p {
+    width: 80%;
+    height: 200px;
+    margin-left: 1%;
+    margin-top: 2px;
+    border: 3px solid whitesmoke;
+}
+
+#main #i_p #fad {
+    margin: auto;
+    width: 80%;
+    height: 100%;
+}
+
+#fad:hover{
+    color: rosybrown;
+}
+
+#footer {
+    width: 100%;
+    height: 280px;
+    margin-top: 300px;
+    background-color:  #333333;
+    position: relative;
+    z-index: 0;
+}
+
+#i {
+    float: left;
+    width: 500px;
+    height: 400px;
+    position: relative;
+    z-index: 1;
+}
+
+#i img{
+    width: 100%;
+    height: 100%;
+}
+
+#m {
+    margin-top: 25px;
+    float: right;
+    width: 400px;
+    height: 300px;
+    position: relative;
+    z-index: 1;
+}
+#m img{
+    width: 100%;
+    height: 100%;
+}
+
+#para {
+    margin:4px;
+    padding:4px;
+    background-color: green;
+    width: 500px;
+    height: 110px;
+    overflow: auto;
+    z-index: 2;
+}

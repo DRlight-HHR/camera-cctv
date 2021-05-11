@@ -1,0 +1,69 @@
+body {
+    background-color: coral;
+}
+
+#main_ {
+    width: 50%;
+    height: 500px;
+    margin: auto;
+    margin-top: 50px;
+    border: 5px solid;
+    border-radius: 12px;
+    box-shadow: 20px 20px 50px 15px #ffd600;
+    position: relative;
+}
+
+#image_ {
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+}
+
+#main__ {
+    width: 70%;
+    height: 80%;
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 12px;
+    position: relative;
+}
+
+#main__ input {
+    width: 100%;
+    height: 50px;
+    border: 3px solid #5e5c52;
+    border-radius: 5px;
+    font-family: "Calisto MT";
+    text-transform: capitalize;
+    font-size: large;
+}
+
+#main___ {
+    margin: auto;
+    margin-top: 70%;
+    width: 30%;
+    height: 40px;
+}
+
+#main___ button {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    background-color: rgba(۲۵۵, ۲۲۹, ۲۲۹, 0.7);
+    font-family: "Segoe UI";
+    font-weight: bold;
+}
+
+#help {
+    width: 80%;
+    height: 100px;
+    margin: auto;
+    margin-top: 50px;
+}
+
+#help p {
+    font-family: AMIR;
+    font-size: large;
+}

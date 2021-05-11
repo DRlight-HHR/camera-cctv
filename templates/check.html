@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>check</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/check.css' %}">
+    <style>
+        @font-face {
+            font-family: 'AMIR';
+            src: url("{% static 'font/font/Lalezar-Regular.ttf' %}");
+        }
+    </style>
+</head>
+<body>
+    <h2 style="color: blue; text-align: center" dir="rtl">{{ error }}</h2>
+    <div id="main_">
+        <img src="{% static 'image/Newsletter.png' %}" id="image_">
+        <div id="main__">
+            <form>
+                {% csrf_token %}
+                <input type="password" name="__pass__" placeholder="enter pass how sending to your email now">
+                <div id="main___">
+                    <button type="submit" formmethod="post">Check</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="help" style="font-family: AMIR;">
+        <h1 dir="rtl">راهنمایی:</h1>
+        <p dir="rtl">رمزی که برای شما درون ایمیل شما ارسال شده است را وارد کنید اگر اشتباه وارد شود باید کل مرحله ثبت نام را از اول طی کنید</p>
+    </div>
+</body>
+</html>
