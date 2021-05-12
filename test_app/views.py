@@ -2,8 +2,21 @@ from django.shortcuts import render, get_object_or_404
 from .models import book
 from rest.models import camera
 
+import os
 from django.shortcuts import redirect, Http404
+from django.http import HttpResponse
 
+
+def deletee(reqeust):
+    try:
+        d = "/home/cameracctv/camera-cctv/upload_M_ROOT/camera_video"
+        for path in os.listdir(d):
+            full_path = os.path.join(d, path)
+            if os.path.isfile(full_path):
+                os.remove(full_path)
+        return HttpResponse('ok i delete')
+    except:
+        return HttpResponse('whats wrong')
 
 def vid(request):
     query = camera.objects.all()

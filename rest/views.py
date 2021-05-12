@@ -1,6 +1,6 @@
 from test_app.models import book
-from .models import camera
-from .serilizations import book_s, camera_s
+from .models import camera, checker
+from .serilizations import book_s, camera_s, checker_s
 from django.http import HttpResponse
 from rest_framework import status
 from rest_framework.response import Response
@@ -8,6 +8,30 @@ from rest_framework.views import APIView
 from rest_framework import permissions
 
 from django.shortcuts import get_object_or_404
+
+
+class delete_movie(APIView):
+    def delete(self, request, pk):
+        query = camera.objects.get(pk=pk)
+        query.delete()
+        return Response(status=status.HTTP_200_OK)
+
+
+class check_off_on(APIView):
+    def get(self, request):
+        query = get_object_or_404(checker)
+        seri = checker_s(query, context={'request': request})
+        return Response(seri.data, status=status.HTTP_200_OK)
+
+
+class post_photo(APIView):
+    def post(self, request):
+        seri = camera_s(data=request.data)
+        if seri.is_valid():
+            seri.save()
+            return Response(status=status.HTTP_200_OK)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 class movie(APIView):
@@ -24,12 +48,13 @@ class movie(APIView):
 
 
 class movie_get(APIView):
-    def get(self, request, pk):
-        query = get_object_or_404(camera, pk=pk)
-        seri = camera_s(query, context={'request': request})
+    def get(self, request):
+        query = camera.objects.all()
+        seri = camera_s(query, context={'request': request}, many=True)
         return Response(seri.data, status=status.HTTP_200_OK)
 
 
+################################################################################
 class get(APIView):
     def get(self, request):
         x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')

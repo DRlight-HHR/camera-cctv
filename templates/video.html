@@ -7,9 +7,11 @@
 </head>
 <body>
 {% for i in data %}
-<video controls width="640" height="480">
-        <source src="{{  i.image.url }}" type="video/mp4"/>
-</video>
+<div style="margin: auto ; border-radius: 50px;">
+    <video width="640" height="480" autoplay controls>
+        <source src="{{  i.image.url }}"/>
+    </video>
+</div>
 {% endfor %}
 </body>
 </html>
